@@ -1,22 +1,53 @@
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import CustomGrid from './components/CustomGrid';
 
 function App() {
+  const [myList, setMyList] =  React.useState(null);
+
+  React.useState(
+    () => {
+      setMyList([{
+        title: "Some Heading",
+        img: "stock-img.svg",
+        text:"SOME HUGE DESCSRIPTION SOME HUGE DESCRIPTION",
+        linked_resource: "1"
+      },
+      {
+        title: "Some Heading 2",
+        img: "stock-img.svg",
+        text:"SOME HUGE DESCSRIPTION SOME HUGE DESCRIPTION",
+        linked_resource: "2"
+      },
+      {
+        title: "Some Heading 2",
+        img: "stock-img.svg",
+        text:"SOME HUGE DESCSRIPTION SOME HUGE DESCRIPTION",
+        linked_resource: "3"
+      },
+      {
+        title: "Some Heading 2",
+        img: "stock-img.svg",
+        text:"SOME HUGE DESCSRIPTION SOME HUGE DESCRIPTION",
+        linked_resource: "4"
+      },
+      {
+        title: "Some Heading 2",
+        img: "stock-img.svg",
+        text:"SOME HUGE DESCSRIPTION SOME HUGE DESCRIPTION",
+        linked_resource: "5"
+      }]);
+    }
+  , [])
+ 
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div>
+           {/* Grids here */}
+           {myList && <CustomGrid list={myList}/>}
+        </div>
       </header>
     </div>
   );
